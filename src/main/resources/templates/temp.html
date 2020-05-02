@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<h1>eferger</h1>
+<span th:if="${#dates.day(standardDate).after(#dates.createNow())}">Case 2</span>
+</body>
+</html>

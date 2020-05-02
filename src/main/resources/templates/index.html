@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+</head>
+<body>
+  <div sec:authorize="hasRole('USER')">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+           <input type="file" name="file" />
+     <input type="submit" value="Upload file"></input>  
+    </form>
+    
+    </div>
+    
+   <div sec:authorize="hasRole('ADMIN')">
+   <form action="/uploadTask" method="POST" enctype="multipart/form-data">
+           <input type="file" name="file" />
+     <input type="submit" value="Upload task"></input>  
+    </form>
+   
+   </div> 
+    
+    <h3>  <a th:href="@{/shTasks}">show tasks</a></h3>
+    
+    <h3> <a th:href = "@{/sh}">show files</a></h3>  
+   
+   <div sec:authorize="hasRole('USER')">
+        <h1>Student page (Spring Security protected)</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+ <div sec:authorize="hasRole('ADMIN')">
+        <h1>Teacher page (Spring Security protected)</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>   
+   
+  <!--     <h3>Spring Boot File Upload Example</h3>
+       
+      <ul>
+        
+        <li><a th:href="@{/uploadMultiFile}">Upload Multiple Files Example</a></li>
+      </ul>-->
+    
+     
+   
+ 
+  <ul th:each="subject : ${subjects}">
+    <a  th:text="${subject.name}">element</a>
+</ul>
+
+    
+    <a th:href="@{/main}">Back</a>
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Upload Status</title>
+
+</head>
+<body>
+
+   <div th:if="${msg}">
+    <span th:text="${msg}"></span>
+  </div>
+  
+ <h3>  <a th:href="@{/sh}">show files</a></h3>
+  
+  <h3>  <a th:href="@{/shTasks}">show tasks</a></h3>
+  
+  
+  <a th:href="@{/main}">Back</a>
+
+  
+  
+<div sec:authorize="hasRole('USER')">
+<h1>ewgre</h1>
+        <h1>User page (Spring Security protected)</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+ <div sec:authorize="hasRole('ADMIN')">
+        <h1>ADMIN page (Spring Security protected)</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>   
+ 
+</body>
+</html>

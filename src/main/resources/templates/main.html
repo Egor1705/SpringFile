@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script>
+/*$(document).ready(function(){
+	$("#btn2").click(function(){
+		alert("Button 2 clicked");
+	});
+});
+
+$(document).ready(function(){
+	$("#btn1").click(function(){
+		alert("Button 1 clicked");
+	});
+});*/
+
+</script>
+  
+  
+  
+  
+</head>
+<body>
+<div sec:authorize="hasRole('ADMIN')">
+         <h1>Teacher page (Spring Security protected)</h1>
+ </div>
+ 
+ <div sec:authorize="hasRole('USER')">
+         <h1>Student page (Spring Security protected)</h1>
+ </div>
+ 
+ <div>
+        <form method="post">
+            <input type="text" name="name" placeholder="input name" />
+            <input type="text" name="prefix" placeholder="Prefix"/>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+<div>List of subjects</div>
+<form method="post" action="filter">
+        <input type="text" name="filter"/>
+        <button type="submit">Find</button>
+    </form>
+
+<div>
+  <!--   <form th:action="@{/foo}" method="post">
+   <input type="submit" value="go"/>
+ </form>-->
+
+<!--  <form th:action="@{/foo}" method="get">
+  <ul th:each="subject : ${subjects}">
+<a href="@{/foo}"><li th:text="${subject.name}"></li></a>-->
+    
+    
+      <ul th:each="subject : ${subjects}">
+    <a th:href="@{/foo}" th:text="${subject.name}">element</a>
+    
+</ul>
+
+
+
+      </div>
+      
+       <h3>  <a th:href="@{/find}">show subjects</a></h3>
+      
+  
+
+
+
+
+<style>
+ #dummy {
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  background-color: #fff000;
+ }
+ </style>
+ 
+ 
+ 
+<input type = "button" value="1 курс"/>
+<input type = "button" value="2 курс"/>
+<input type = "button" value="3 курс"/>
+<input type = "button" value="4 курс"/>
+
+ 
+ 
+ 
+ 
+ <script>
+ $('input[value="1 курс"]').click(function(){
+	 $("a").filter(":contains(sys),:contains(dat),:contains(cryp),:contains(neu),:contains(wav)").hide();
+	 $("a").filter(":contains(intr),:contains(comp),:contains(eng)").show();
+ })
+
+ $('input[value="2 курс"]').click(function(){
+	 $("a").filter(":contains(dat),:contains(sys),:contains(neu),:contains(eng),:contains(comp),:contains(cryp)").show();
+	 $("a").filter(":contains(intr),:contains(wav)").hide();
+ }) 
+ 
+  $('input[value="3 курс"]').click(function(){
+	 $("a").filter(":contains(intr),:contains(eng),:contains(comp),:contains(dat),:contains(wav)").hide();
+	 $("a").filter(":contains(sys),:contains(neu),:contains(cryp)").show();
+ })
+  $('input[value="4 курс"]').click(function(){
+	 $("a").filter(":contains(neu),:contains(c),:contains(dat),:contains(intr),:contains(en)").hide();
+	 $("a").filter(":contains(wav),:contains(sys)").show();
+ }) 
+ 
+</script>
+ 
+ 
+ 
+<br>
+
+</br>
+
+
+  
+<div class="starter-template_user">
+ <div sec:authorize="hasRole('USER')">
+        
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    </div>
+    
+    
+    <div class="starter-template_admin">
+    <div sec:authorize="hasRole('ADMIN')">
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+ 
+    </div>
+    </div>
+
+
+     
+        
+       
+
+
+<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form th:action="@{/temp}" method="get">
+             <input type="submit" value="to temp"/>
+                <fieldset>
+                    <h1>Please Sign In</h1>
+ 
+                    
+                       
+ 
+                   
+                </fieldset>
+            </form>
+        </div>
+
+
+
+
+</body>
+</html>
+
+
+
